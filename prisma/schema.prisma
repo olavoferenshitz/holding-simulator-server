@@ -6,14 +6,20 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
-model Book {
-  id          String @id @default(uuid())
-  name        String
-  description String
+model Lead {
+  id                  String @id @default(uuid())
+  name                String
+  email               String @unique
+  phone               Int
+  state               String
+  patrimony           Decimal
+  totalDonationCost   Decimal
+  totalInventoryCost  Decimal
+  whatsappUrl         String
 
-  @@map("books")
+  @@map("leads")
 }

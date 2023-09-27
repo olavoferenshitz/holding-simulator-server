@@ -1,25 +1,35 @@
-import express from 'express'
-import { prismaClient } from './database'
+import express, { NextFunction, Request, Response, response } from "express";
+import { prismaClient } from "./database";
 
-const app = express()
-app.use(express.json())
+const app = express();
+app.use(express.json());
 
-const port = process.env.PORT ?? 4000
+const port = process.env.PORT ?? 4000;
 
-app.get('/books', async (request, response) => {
-  const books = await prismaClient.book.findMany()
-  return response.json(books)
-})
-
-app.post('/books', async (request, response) => {
-  const { description, name } = request.body
-  const book = await prismaClient.book.create({
+app.post("/leads", async (request: Request, response: Response) => {
+  const {
+    name,
+    email,
+    phone,
+    state,
+    patrimony,
+    totalDonationCost,
+    totalInventoryCost,
+    whatsappUrl,
+  } = request.body;
+  const lead = await prismaClient.lead.create({
     data: {
-      description,
       name,
+      email,
+      phone,
+      state,
+      patrimony,
+      totalDonationCost,
+      totalInventoryCost,
+      whatsappUrl,
     },
-  })
-  return response.json(book)
-})
+  });
+  return response.json(lead);
+});
 
-app.listen(port, () => console.log('Server is running on port ', port))
+app.listen(port, () => console.log("Server is running on port ", port));
