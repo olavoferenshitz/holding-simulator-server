@@ -5,6 +5,11 @@ import { LeadModel, LeadResponseModel } from "../interfaces";
 
 const router: Router = Router();
 
+router.get("/leads", async (request: Request, response: Response) => {
+  const leads = await prismaClient.lead.findMany();
+  return response.json(leads);
+});
+
 router.post("/leads", async (request: Request, response: Response) => {
   try {
     const {
