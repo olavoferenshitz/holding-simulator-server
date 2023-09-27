@@ -1,35 +1,17 @@
-import express, { NextFunction, Request, Response, response } from "express";
-import { prismaClient } from "./database";
+import express, { Application } from "express";
+import { createServer } from "http";
+import { AddressInfo } from "net";
+import { leadsRouter } from "./routes/leads";
 
-const app = express();
+const app: Application = express();
 app.use(express.json());
 
-const port = process.env.PORT ?? 4000;
+const port = process.env.PORT || 4000;
 
-app.post("/leads", async (request: Request, response: Response) => {
-  const {
-    name,
-    email,
-    phone,
-    state,
-    patrimony,
-    totalDonationCost,
-    totalInventoryCost,
-    whatsappUrl,
-  } = request.body;
-  const lead = await prismaClient.lead.create({
-    data: {
-      name,
-      email,
-      phone,
-      state,
-      patrimony,
-      totalDonationCost,
-      totalInventoryCost,
-      whatsappUrl,
-    },
-  });
-  return response.json(lead);
-});
+async function bootstrap() {
+  app.use("/", leadsRouter);
 
-app.listen(port, () => console.log("Server is running on port ", port));
+  app.listen(port, () => console.log("Server is running on port", port));
+}
+
+bootstrap();
