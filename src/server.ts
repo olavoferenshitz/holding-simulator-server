@@ -1,10 +1,10 @@
 import express, { Application } from "express";
-import { createServer } from "http";
-import { AddressInfo } from "net";
+import cors from "cors";
 import { leadsRouter } from "./routes/leads";
 
 const app: Application = express();
 app.use(express.json());
+app.use(cors());
 
 const port = process.env.PORT || 4000;
 
