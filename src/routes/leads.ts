@@ -24,9 +24,9 @@ router.post("/leads", async (request: Request, response: Response) => {
       hasChildren,
       privacy,
       contact,
-      createdAt,
       totalDonationCost,
       totalInventoryCost,
+      createdAt,
     } = request.body as LeadResponseModel;
 
     const leadData: LeadModel = {
@@ -41,9 +41,9 @@ router.post("/leads", async (request: Request, response: Response) => {
       hasChildren,
       privacy,
       contact,
-      createdAt,
       totalDonationCost,
       totalInventoryCost,
+      createdAt,
       whatsappUrl: createWhatsappUrl(phone),
     };
 
