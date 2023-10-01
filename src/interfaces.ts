@@ -10,9 +10,9 @@ export interface LeadResponseModel {
   hasChildren: string;
   privacy: string;
   contact: string;
-  createdAt: Date;
   totalDonationCost: string;
   totalInventoryCost: string;
+  createdAt: Date;
 }
 
 export interface LeadModel extends LeadResponseModel {

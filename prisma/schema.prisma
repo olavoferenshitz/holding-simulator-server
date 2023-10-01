@@ -12,22 +12,22 @@ datasource db {
 }
 
 model Lead {
-  id                  String @id @default(uuid())
-  name                String
-  email               String @unique
-  phone               Int
-  state               String
-  rentalProperty      String
-  equityAmount        String
-  rent                String
-  age                 Int
-  hasChildren         String
-  privacy             String
-  contact             String
-  totalDonationCost   String
-  totalInventoryCost  String
-  createdAt           DateTime
-  whatsappUrl         String
+  id                 String   @id @default(uuid())
+  name               String
+  email              String
+  phone              Int
+  state              String
+  rentalProperty     String
+  equityAmount       String
+  rent               String
+  age                Int
+  hasChildren        String
+  privacy            String
+  contact            String
+  totalDonationCost  String
+  totalInventoryCost String
+  createdAt          DateTime
+  whatsappUrl        String
 
   @@map("leads")
 }
