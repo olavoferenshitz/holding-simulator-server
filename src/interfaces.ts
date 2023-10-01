@@ -3,9 +3,16 @@ export interface LeadResponseModel {
   email: string;
   phone: number;
   state: string;
-  patrimony: number;
-  totalDonationCost: number;
-  totalInventoryCost: number;
+  rentalProperty: string;
+  equityAmount: string;
+  rent: string;
+  age: number;
+  hasChildren: string;
+  privacy: string;
+  contact: string;
+  createdAt: Date;
+  totalDonationCost: string;
+  totalInventoryCost: string;
 }
 
 export interface LeadModel extends LeadResponseModel {

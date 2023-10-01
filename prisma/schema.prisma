@@ -3,7 +3,7 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "./generated/client"
+  // output   = "./generated/client"
 }
 
 datasource db {
@@ -17,9 +17,16 @@ model Lead {
   email               String @unique
   phone               Int
   state               String
-  patrimony           Decimal
-  totalDonationCost   Decimal
-  totalInventoryCost  Decimal
+  rentalProperty      String
+  equityAmount        String
+  rent                String
+  age                 Int
+  hasChildren         String
+  privacy             String
+  contact             String
+  totalDonationCost   String
+  totalInventoryCost  String
+  createdAt           DateTime
   whatsappUrl         String
 
   @@map("leads")
