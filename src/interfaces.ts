@@ -9,7 +9,6 @@ export interface LeadResponseModel {
   age: number;
   hasChildren: string;
   privacy: string;
-  contact: string;
   totalDonationCost: string;
   totalInventoryCost: string;
   createdAt: Date;

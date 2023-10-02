@@ -23,7 +23,6 @@ model Lead {
   age                Int
   hasChildren        String
   privacy            String
-  contact            String
   totalDonationCost  String
   totalInventoryCost String
   createdAt          DateTime
