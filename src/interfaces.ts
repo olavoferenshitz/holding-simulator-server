@@ -11,6 +11,7 @@ export interface LeadResponseModel {
   privacy: string;
   totalDonationCost: string;
   totalInventoryCost: string;
+  totalHoldingSaving: string;
   createdAt: Date;
 }
 

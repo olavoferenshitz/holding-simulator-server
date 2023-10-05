@@ -25,6 +25,7 @@ model Lead {
   privacy            String
   totalDonationCost  String
   totalInventoryCost String
+  totalHoldingSaving String
   createdAt          DateTime
   whatsappUrl        String
 
