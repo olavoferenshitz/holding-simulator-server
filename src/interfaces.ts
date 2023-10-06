@@ -1,7 +1,7 @@
 export interface LeadResponseModel {
   name: string;
   email: string;
-  phone: number;
+  phone: string;
   state: string;
   rentalProperty: string;
   equityAmount: string;

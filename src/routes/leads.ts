@@ -29,6 +29,7 @@ router.post("/leads", async (request: Request, response: Response) => {
       createdAt,
     } = request.body as LeadResponseModel;
 
+
     const leadData: LeadModel = {
       name,
       email,
@@ -44,7 +45,7 @@ router.post("/leads", async (request: Request, response: Response) => {
       totalInventoryCost,
       totalHoldingSaving,
       createdAt,
-      whatsappUrl: createWhatsappUrl(phone, totalHoldingSaving),
+      whatsappUrl: createWhatsappUrl(Number(phone), totalHoldingSaving),
     };
 
     const createdLead = await prismaClient.lead.create({
