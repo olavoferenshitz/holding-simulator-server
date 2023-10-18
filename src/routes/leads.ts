@@ -1,6 +1,6 @@
 import { Router, Request, Response } from "express";
 import { prismaClient } from "../database";
-import { createWhatsappUrl } from "../utils";
+import { createWhatsappUrl, setCreatedAtToBrazilTimeZone } from "../utils";
 import { LeadModel, LeadResponseModel } from "../interfaces";
 
 const router: Router = Router();
@@ -29,6 +29,7 @@ router.post("/leads", async (request: Request, response: Response) => {
       createdAt,
     } = request.body as LeadResponseModel;
 
+    const timeZoneDate = setCreatedAtToBrazilTimeZone(createdAt);
 
     const leadData: LeadModel = {
       name,
@@ -44,7 +45,7 @@ router.post("/leads", async (request: Request, response: Response) => {
       totalDonationCost,
       totalInventoryCost,
       totalHoldingSaving,
-      createdAt,
+      createdAt: timeZoneDate,
       whatsappUrl: createWhatsappUrl(Number(phone), totalHoldingSaving),
     };
 
